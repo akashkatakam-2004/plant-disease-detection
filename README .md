@@ -8,57 +8,54 @@
 ![Gradio](https://img.shields.io/badge/Gradio-UI-purple)
 ![HuggingFace](https://img.shields.io/badge/🤗-HuggingFace%20Space-yellow)
 
----
-
 ## 🚀 Live Demo
 👉 [Try it on Hugging Face Spaces](https://huggingface.co/spaces/Akashkatakam/plant-disease-detection)
-
----
 
 ## ✨ Features
 
 - 🖼️ **Image Upload** — Upload any plant leaf image
 - 🧠 **VGG16 Feature Extraction** — Deep CNN extracts 128-dim feature vectors
 - 🌲 **XGBoost Classifier** — Fast, accurate disease classification
-- 📊 **Top 3 Predictions** — See confidence scores for top predictions
+- 📊 **Top Prediction** — See disease name + confidence score
 - ✅ **Healthy vs Disease** — Clear status with detailed disease info
-- 🌱 **10 Conditions** — Covers 4 plants and 10 disease/healthy states
-
----
+- 🌱 **38 Classes** — Covers 14 plants (Apple, Tomato, Potato, Grape, Corn, and more)
 
 ## 🏗️ Architecture
-
-```
 Leaf Image (224x224)
-       │
-       ▼
+│
+▼
 VGG16 (ImageNet weights, frozen)
-       │
+│
 GlobalAveragePooling2D
-       │
+│
 Dense(512) → Dense(256) → Dense(128)
-       │
-  Feature Vector (128-dim)
-       │
-       ▼
+│
+Feature Vector (128-dim)
+│
+▼
 XGBoost Classifier
-       │
-       ▼
+│
+▼
 Disease Prediction + Confidence
-```
 
----
+text
 
-## 🌱 Supported Plants & Conditions
+## 🌱 Supported Plants & Diseases
 
-| Plant | Conditions |
-|-------|-----------|
-| 🍎 Apple | Apple Scab, Black Rot, Healthy |
+| Plant | Diseases |
+|-------|----------|
+| 🍎 Apple | Apple Scab, Black Rot, Cedar Apple Rust, Healthy |
+| 🫐 Blueberry | Healthy |
 | 🍒 Cherry | Powdery Mildew, Healthy |
-| 🍇 Grape | Black Rot, Healthy |
-| 🍅 Tomato | Late Blight, Leaf Mold, Healthy |
-
----
+| 🌽 Corn | Gray Leaf Spot, Common Rust, Northern Leaf Blight, Healthy |
+| 🍇 Grape | Black Rot, Esca, Leaf Blight, Healthy |
+| 🍊 Orange | Citrus Greening (Haunglongbing) |
+| 🍑 Peach | Bacterial Spot, Healthy |
+| 🫑 Pepper | Bacterial Spot, Healthy |
+| 🥔 Potato | Early Blight, Late Blight, Healthy |
+| 🍓 Strawberry | Leaf Scorch, Healthy |
+| 🍅 Tomato | Bacterial Spot, Early Blight, Late Blight, Leaf Mold, Septoria Leaf Spot, Spider Mites, Target Spot, Yellow Leaf Curl Virus, Mosaic Virus, Healthy |
+| + Raspberry, Soybean, Squash | Healthy + Powdery Mildew (Squash) |
 
 ## 🛠️ Tech Stack
 
@@ -68,77 +65,35 @@ Disease Prediction + Confidence
 | Feature Extractor | VGG16 (TensorFlow/Keras) |
 | Classifier | XGBoost |
 | Image Processing | OpenCV + PIL |
-| Model Storage | Hugging Face Spaces (LFS) |
-
----
+| Deployment | Hugging Face Spaces |
 
 ## ⚙️ Local Setup
 
-### 1. Clone the repo
 ```bash
 git clone https://github.com/akashkatakam-2004/plant-disease-detection.git
 cd plant-disease-detection
-```
-
-### 2. Create virtual environment
-```bash
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
-```
-
-### 3. Install dependencies
-```bash
 pip install -r requirements.txt
-```
-
-### 4. Download the CNN model
-> ⚠️ `cnn_extractor.h5` (60MB) is NOT included in this repo due to GitHub's 25MB limit.
-
-Download it from Hugging Face:
-👉 [Download cnn_extractor.h5](https://huggingface.co/spaces/Akashkatakam/plant-disease-detection/resolve/main/cnn_extractor.h5)
-
-Place it in the root folder:
-```
-plant-disease-detection/
-├── cnn_extractor.h5   ← place here
-├── xgb_classifier.pkl
-├── metadata.pkl
-├── app.py
-...
-```
-
-### 5. Run the app
-```bash
 python app.py
-```
+Open http://localhost:7860
 
-Open your browser at `http://localhost:7860`
+⚠️ The CNN feature extractor (cnn_extractor.h5) creates automatically on first run.
 
----
-
-## 📂 Project Structure
-
-```
+📂 Project Structure
+text
 plant-disease-detection/
-├── app.py               # Gradio app + prediction logic
+├── app.py               # Gradio app
 ├── xgb_classifier.pkl   # Trained XGBoost model
-├── metadata.pkl         # Class names and metadata
-├── requirements.txt     # Python dependencies
-├── .gitignore           # Excludes large model files
-└── README.md            # You are here
+├── metadata.pkl         # Class names
+├── requirements.txt     # Dependencies
+└── README.md
+📊 Model Performance
+Metric	Value
+Validation Accuracy	~96%
+Test Accuracy	~95%
+Number of Classes	38
+👨‍💻 Built by
+Akash Katakam — AI/ML Engineer
 
-# Not in repo (too large for GitHub):
-# cnn_extractor.h5      # Download from Hugging Face (link above)
-```
-
----
-
-## 👨‍💻 Built by
-
-**Akash Katakam** — [Hugging Face](https://huggingface.co/Akashkatakam)
-
----
-
-## 📄 License
-
-MIT License — feel free to use, modify, and share!
+GitHub | LinkedIn | Hugging Face
