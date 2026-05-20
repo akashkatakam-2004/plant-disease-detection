@@ -18,7 +18,7 @@
 - 🌲 **XGBoost Classifier** — Fast, accurate disease classification
 - 📊 **Top Prediction** — See disease name + confidence score
 - ✅ **Healthy vs Disease** — Clear status with detailed disease info
-- 🌱 **38 Classes** — Covers 14 plants (Apple, Tomato, Potato, Grape, Corn, and more)
+- 🌱 **38 Classes** — Covers 14 plants
 
 ## 🏗️ Architecture
 Leaf Image (224x224)
@@ -38,24 +38,23 @@ XGBoost Classifier
 ▼
 Disease Prediction + Confidence
 
-text
 
 ## 🌱 Supported Plants & Diseases
 
 | Plant | Diseases |
 |-------|----------|
-| 🍎 Apple | Apple Scab, Black Rot, Cedar Apple Rust, Healthy |
+| 🍎 Apple | Scab, Black Rot, Cedar Rust, Healthy |
 | 🫐 Blueberry | Healthy |
 | 🍒 Cherry | Powdery Mildew, Healthy |
 | 🌽 Corn | Gray Leaf Spot, Common Rust, Northern Leaf Blight, Healthy |
 | 🍇 Grape | Black Rot, Esca, Leaf Blight, Healthy |
-| 🍊 Orange | Citrus Greening (Haunglongbing) |
+| 🍊 Orange | Citrus Greening |
 | 🍑 Peach | Bacterial Spot, Healthy |
 | 🫑 Pepper | Bacterial Spot, Healthy |
 | 🥔 Potato | Early Blight, Late Blight, Healthy |
 | 🍓 Strawberry | Leaf Scorch, Healthy |
 | 🍅 Tomato | Bacterial Spot, Early Blight, Late Blight, Leaf Mold, Septoria Leaf Spot, Spider Mites, Target Spot, Yellow Leaf Curl Virus, Mosaic Virus, Healthy |
-| + Raspberry, Soybean, Squash | Healthy + Powdery Mildew (Squash) |
+| + Raspberry, Soybean, Squash | Healthy + Powdery Mildew |
 
 ## 🛠️ Tech Stack
 
@@ -73,27 +72,25 @@ text
 git clone https://github.com/akashkatakam-2004/plant-disease-detection.git
 cd plant-disease-detection
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate
 pip install -r requirements.txt
 python app.py
 Open http://localhost:7860
 
-⚠️ The CNN feature extractor (cnn_extractor.h5) creates automatically on first run.
-
 📂 Project Structure
-text
 plant-disease-detection/
-├── app.py               # Gradio app
-├── xgb_classifier.pkl   # Trained XGBoost model
-├── metadata.pkl         # Class names
-├── requirements.txt     # Dependencies
+├── app.py
+├── xgb_classifier.pkl
+├── metadata.pkl
+├── requirements.txt
 └── README.md
 📊 Model Performance
 Metric	Value
 Validation Accuracy	~96%
 Test Accuracy	~95%
 Number of Classes	38
-👨‍💻 Built by
-Akash Katakam — AI/ML Engineer
+## 👨‍💻 Built by
 
-GitHub | LinkedIn | Hugging Face
+**Akash Katakam** — AI/ML Engineer
+
+[GitHub](https://github.com/akashkatakam-2004) | [LinkedIn](https://linkedin.com/in/akash-katakam) | [Hugging Face](https://huggingface.co/Akashkatakam)
